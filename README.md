@@ -2,13 +2,13 @@
 
 - [Original implementation (GitHub)](https://github.com/MIRALab-USTC/LD)
 
-- [Original LD paper (ArXiv)](http://arxiv.org/abs/2309.14907)
+- [Original LD paper (arXiv)](http://arxiv.org/abs/2309.14907)
 
 This is a slightly modified version of the original implementation of the Label Deconvolution (LD) method. Primarily, only the parts of the code that are relevant to the OGBN-Proteins dataset are left.
 
 Additionally, there is some refactoring and adjustments to allow for easier experimentation with different protein language models that are used as node encoders.
 
-Currently, models from the ESM2 family are being used, but in the future we can experiment with the newer, ESM Cambrian (ESM C) models.
+Currently, ESM2 family models are in use. The next step is to experiment with the newer ESM Cambrian (ESM C) models.
 
 ## Dataset
 
@@ -16,7 +16,7 @@ OGBN-Proteins
 
 - [Description (OGB Website)](https://ogb.stanford.edu/docs/nodeprop/#ogbn-proteins)
 
-- [Original OGB paper (arxiv)](https://arxiv.org/pdf/2005.00687)
+- [Original OGB paper (arXiv)](https://arxiv.org/pdf/2005.00687)
 
 ## Node Encoders
 
@@ -24,9 +24,15 @@ One of the key aspects of the LD+GAT method is the use of a **protein language m
 
 ### ESM2 Models
 
+Evolutionary Scale Modeling (ESM), with ESM2 and ESMFold, is a transformer protein language model family from Meta AI's Fundamental AI Research Team.
+
+- [Implementation (GitHub)](https://github.com/facebookresearch/esm)
+
 - [Documentation (Hugging Face)](https://huggingface.co/docs/transformers/en/model_doc/esm)
 
 #### Model Versions
+
+These are the pre-trained models available on Hugging Face.
 
 | Name                | Layers     | Parameters |
 |---------------------|------------|------------|
@@ -41,7 +47,7 @@ One of the key aspects of the LD+GAT method is the use of a **protein language m
 
 **ESM Cambrian** (or **ESM C**) is the newer family of models, that can be used as a drop-in replacement for ESM2 models.
 
-- [Blog article (EvolutionaryScale)](https://www.evolutionaryscale.ai/blog/esm-cambrian)
+- [Blog article (EvolutionaryScale Website)](https://www.evolutionaryscale.ai/blog/esm-cambrian)
 
 - [Implementation (GitHub)](https://github.com/evolutionaryscale/esm?tab=readme-ov-file#esm-c-)
 

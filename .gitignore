@@ -23,5 +23,5 @@ NeuralCommonNeighbor/
 
 *.out
 
-protein/
+protein/data/
 datasets/OGB/ogbn_proteins/
