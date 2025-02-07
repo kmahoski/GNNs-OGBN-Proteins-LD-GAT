@@ -1,9 +1,8 @@
 # LD+GAT for OGBN-Proteins
 
-Original implementation on [GitHub](https://github.com/MIRALab-USTC/LD)
+- [Original implementation (GitHub)](https://github.com/MIRALab-USTC/LD)
 
-
-Original paper on LD on [arxiv](http://arxiv.org/abs/2309.14907)
+- [Original LD paper (ArXiv)](http://arxiv.org/abs/2309.14907)
 
 This is a slightly modified version of the original implementation of the Label Deconvolution (LD) method. Primarily, only the parts of the code that are relevant to the OGBN-Proteins dataset are left.
 
@@ -13,9 +12,11 @@ Currently, models from the ESM2 family are being used, but in the future we can 
 
 ## Dataset
 
-[OGBN-Proteins](https://ogb.stanford.edu/docs/nodeprop/#ogbn-proteins)
+OGBN-Proteins
 
-Original OGB paper on [arxiv](https://arxiv.org/pdf/2005.00687)
+- [Description (OGB Website)](https://ogb.stanford.edu/docs/nodeprop/#ogbn-proteins)
+
+- [Original OGB paper (arxiv)](https://arxiv.org/pdf/2005.00687)
 
 ## Node Encoders
 
@@ -23,7 +24,9 @@ One of the key aspects of the LD+GAT method is the use of a **protein language m
 
 ### ESM2 Models
 
-[ESM on Hugging Face](https://huggingface.co/docs/transformers/en/model_doc/esm)
+- [Documentation (Hugging Face)](https://huggingface.co/docs/transformers/en/model_doc/esm)
+
+#### Model Versions
 
 | Name                | Layers     | Parameters |
 |---------------------|------------|------------|
@@ -38,21 +41,29 @@ One of the key aspects of the LD+GAT method is the use of a **protein language m
 
 **ESM Cambrian** (or **ESM C**) is the newer family of models, that can be used as a drop-in replacement for ESM2 models.
 
-Article on [EvolutionaryScale](https://www.evolutionaryscale.ai/blog/esm-cambrian)
+- [Blog article (EvolutionaryScale)](https://www.evolutionaryscale.ai/blog/esm-cambrian)
 
-Implementation on [GitHub](https://github.com/evolutionaryscale/esm?tab=readme-ov-file#esm-c-)
+- [Implementation (GitHub)](https://github.com/evolutionaryscale/esm?tab=readme-ov-file#esm-c-)
 
-## Environment
+## Experimental Setup
 
-OS: Linux 6.12.10-200.fc41.x86_64
+### OS
 
-GPU: Nvidia
+Linux
+6.12.10-200.fc41.x86_64
+
+### GPU
+
+Nvidia
+(Originally tested on Quadro P1000)
 
 GPU Drivers: Proprietary, from X.Org (with CUDA)
 
 CUDA Version: Build cuda_12.8.r12.8
 
-Conda environment
+### Environment
+
+Conda
 
 Required packages:
 
