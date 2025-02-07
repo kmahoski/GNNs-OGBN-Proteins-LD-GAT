@@ -1,13 +1,9 @@
 # LD+GAT for OGBN-Proteins
 
-Original implementation
-
-[GitHub](https://github.com/MIRALab-USTC/LD)
+Original implementation on [GitHub](https://github.com/MIRALab-USTC/LD)
 
 
-Original paper on LD
-
-[arxiv](http://arxiv.org/abs/2309.14907)
+Original paper on LD on [arxiv](http://arxiv.org/abs/2309.14907)
 
 This is a slightly modified version of the original implementation of the Label Deconvolution (LD) method. Primarily, only the parts of the code that are relevant to the OGBN-Proteins dataset are left.
 
@@ -19,9 +15,7 @@ Currently, models from the ESM2 family are being used, but in the future we can 
 
 [OGBN-Proteins](https://ogb.stanford.edu/docs/nodeprop/#ogbn-proteins)
 
-Original OGB paper
-
-[arxiv](https://arxiv.org/pdf/2005.00687)
+Original OGB paper on [arxiv](https://arxiv.org/pdf/2005.00687)
 
 ## Node Encoders
 
@@ -44,8 +38,9 @@ One of the key aspects of the LD+GAT method is the use of a **protein language m
 
 **ESM Cambrian** (or **ESM C**) is the newer family of models, that can be used as a drop-in replacement for ESM2 models.
 
-Implementation
-[GitHub](https://github.com/evolutionaryscale/esm?tab=readme-ov-file#esm-c-)
+Article on [EvolutionaryScale](https://www.evolutionaryscale.ai/blog/esm-cambrian)
+
+Implementation on [GitHub](https://github.com/evolutionaryscale/esm?tab=readme-ov-file#esm-c-)
 
 ## Environment
 
