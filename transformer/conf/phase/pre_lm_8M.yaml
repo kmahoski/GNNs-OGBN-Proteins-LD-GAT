@@ -1,0 +1,17 @@
+name: pre_lm_8M
+params:
+  proteins:
+    esm2_t6_8M_UR50D:
+      epochs: 4
+      eval_steps: 1000
+      warmup_ratio: 0.15
+
+      finetune_prefix: 'pre_gnn'
+      out_dir: './huggingface_logs'
+      ckpt: '~/model/'
+      save_model: true
+
+      lr: 1e-05
+      lr_scale: 1.0
+      weight_decay: 0.00
+      decay_scale: 0.0

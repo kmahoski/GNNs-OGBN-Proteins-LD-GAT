@@ -1,0 +1,6 @@
+defaults:
+  - model: gat
+  - dataset: proteins
+  - LM: esm2_t6_8M_UR50D
+  - phase: 'admm'
+root: '/home/kliment/Desktop/'
