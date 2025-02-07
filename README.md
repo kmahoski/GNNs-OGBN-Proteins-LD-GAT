@@ -20,11 +20,11 @@ OGBN-Proteins
 
 ## Node Encoders
 
-One of the key aspects of the LD+GAT method is the use of a **protein language model** (the **ESM2 650M** model) as a **node encoder**.
+One of the key aspects of the LD+GAT method is the use of the **ESM2 650M** model as a **node encoder**.
 
 ### ESM2 Models
 
-Evolutionary Scale Modeling (ESM), with ESM2 and ESMFold, is a transformer protein language model family from Meta AI's Fundamental AI Research Team.
+**Evolutionary Scale Modeling (ESM)**, with **ESM2** and **ESMFold**, is a family of **transformer protein language models** from Meta AI's Fundamental AI Research Team.
 
 - [Implementation (GitHub)](https://github.com/facebookresearch/esm)
 
