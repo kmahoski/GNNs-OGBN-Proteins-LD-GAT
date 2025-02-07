@@ -1,105 +1,92 @@
-# Label Deconvolution for Node Representation Learning on Large-scale Attributed Graphs against Learning Bias
+# LD+GAT for OGBN-Proteins
 
-This repository is an implementation of **LD**. [arxiv](http://arxiv.org/abs/2309.14907)
+Original implementation
+[GitHub](https://github.com/MIRALab-USTC/LD)
 
-## Overview
 
-We propose an efficient and effective label regularization technique, namely Label Deconvolution (LD), to alleviate the learning bias from that by the joint training.
+Original paper on LD
+[arxiv](http://arxiv.org/abs/2309.14907)
 
-<img src="framework.jpg" width="100%" height="100%">
+This is a slightly modified version of the original implementation of the Label Deconvolution (LD) method. Primarily, only the parts of the code that are relevant to the OGBN-Proteins dataset are left.
 
-## Requirements
+Additionally, there is some refactoring and adjustments to allow for easier experimentation with different protein language models that are used as node encoders.
 
-The core packages are as follows.
+Currently, models from the ESM2 family are being used, but in the future we can experiment with the newer, ESM C models.
 
-- python=3.8
+## Dataset
+
+[OGBN-Proteins](https://ogb.stanford.edu/docs/nodeprop/#ogbn-proteins)
+
+Original OGB paper
+[arxiv](https://arxiv.org/pdf/2005.00687)
+
+## Node Encoders
+
+One of the key aspects of the LD+GAT method is the use of a protein language model (from the ESM2 family) as a node encoder.
+
+The authors use the 650M version of the model, but there are some smaller and larger versions.
+
+[ESM on Hugging Face](https://huggingface.co/docs/transformers/en/model_doc/esm)
+
+ESM2 Models
+
+| Name                | Layers     | Parameters |
+|---------------------|------------|------------|
+| [esm2_t48_15B_UR50D](https://huggingface.co/facebook/esm2_t48_15B_UR50D)  | 48         | 15B        |
+| [esm2_t36_3B_UR50D](https://huggingface.co/facebook/esm2_t36_3B_UR50D)   | 36         | 3B         |
+| [esm2_t33_650M_UR50D](https://huggingface.co/facebook/esm2_t33_650M_UR50D) | 33         | 650M       |
+| [esm2_t30_150M_UR50D](https://huggingface.co/facebook/esm2_t30_150M_UR50D) | 30         | 150M       |
+| [esm2_t12_35M_UR50D](https://huggingface.co/facebook/esm2_t12_35M_UR50D)  | 12         | 35M        |
+| [esm2_t6_8M_UR50D](https://huggingface.co/facebook/esm2_t6_8M_UR50D)    | 6          | 8M         |
+
+## Environment
+
+OS: Linux 6.12.10-200.fc41.x86_64
+
+GPU: Nvidia
+
+GPU Drivers: Proprietary, from X.Org (with CUDA)
+
+CUDA Version: Build cuda_12.8.r12.8
+
+Conda environment
+
+Required packages:
+
+- python=3.9.12
 - ogb=1.3.3
-- numpy=1.19.5
-- dgl=0.8.0
-- pytorch=1.10.2
-- pyg=2.0.3
-- hydra-core==1.3.1
+- numpy=1.26.4
+- dgl=2.4.0.th24.cu124
+- pytorch=2.4.0+cu124
+- pyg=2.6.1
+- hydra-core=1.3.1
 
-To use our exact environment, one may install the environment by the following command:
-```
-conda env create -f environment.yml
-```
-
-
-## Results:
-
-Performance on **ogbn-arxiv**(5 runs):
-| Methods                           | Validation accuracy | Test accuracy |
-| --------------------------------- | ------------------- | ------------- |
-| $\mathbf{X}_{\text{LD}}$ + GCN    | 76.84 ± 0.09        | 76.22 ± 0.10  |
-| $\mathbf{X}_{\text{LD}}$ + RevGAT | 77.62 ± 0.08        | 77.26 ± 0.17  |
-
-Performance on **ogbn-products**(5 runs):
-| Methods                          | Validation accuracy | Test accuracy |
-| -------------------------------- | ------------------- | ------------- |
-| $\mathbf{X}_{\text{LD}}$ + GAMLP | 94.15 ± 0.03        | 86.45± 0.12   |
-| $\mathbf{X}_{\text{LD}}$ + SAGN  | 93.99 ± 0.02        | 87.18 ± 0.04  |
-
-Performance on **ogbn-protein**(5 runs):
-| Methods                        | Validation accuracy | Test accuracy |
-| ------------------------------ | ------------------- | ------------- |
-| $\mathbf{X}_{\text{LD}}$ + GAT | 95.27 ± 0.07        | 89.42 ± 0.07  |
-
-## Extracted Node Features
-
-We provide extracted node features for each dataset at [Features](https://drive.google.com/drive/folders/109GHk4dtDf0hX_kQLDeMfnvz0Bo5aq_k?usp=drive_link).
-
-## Running the code
-
-### Preparing Data and Pre-trained Models
-
-Before starting the training process, there are certain preparations that need to be done.s
-
-1. Generate tokens from the original node attributes following [GLEM](https://github.com/AndyJZhao/GLEM) and the "protein" folder. For convenience, we provide the LM token of each dataset at [Token](https://drive.google.com/drive/folders/107wQOd2YWyWofvPixWjM7YnTgaXUPGuR?usp=drive_link). The tokenizers are from the following pre-trained models in Huggingface.
-   - **ogbn-arxiv**: deberta-base (REVGAT)
-
-   - **ogbn-products**: deberta-base (GAMLP) and bert-base-uncased (SAGN)
-
-   - **ogbn-proteins**: esm2-t33-650M-UR50D (GAT)
-2. Download the LM corresponding to each dataset from the Hugging Face official website.
-3. Modify the `path` and `token_folder` values in the `transformer/conf/LM/*.yaml` folder.
+There are additional packages for the dependencies. An extensive list, along with a more detailed info is provided in conda-environment-packages.txt.
 
 
 
 
-### Training
 
 
-#### Dataset: ogbn-arxiv
+#### **ogbn-proteins**
 
-- REVGAT:
-
-```
-cd transformer
-bash scripts/shell_arxiv_revgat.sh
-```
-
-#### **ogbn-products**
-
-- GAMLP
-
-```
-cd transformer
-bash scripts/shell_product_gamlp.sh
-```
-
-- SAGN
-
-```
-cd transformer
-bash scripts/shell_product_sagn.sh
-```
-
-#### **ogbn-protein**
-
-- GAT
+- Default (ESM2 650M)
 
 ```
 cd transformer
 bash scripts/shell_protein_gat.sh
+```
+
+- ESM2 8M
+
+```
+cd transformer
+bash scripts/shell_protein_gat_8M.sh
+```
+
+- ESM2 35M
+
+```
+cd transformer
+bash scripts/shell_protein_gat_35M.sh
 ```
