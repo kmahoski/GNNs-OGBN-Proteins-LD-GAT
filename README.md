@@ -45,11 +45,25 @@ These are the pre-trained models available on Hugging Face.
 
 ### ESM Cambrian Models
 
-**ESM Cambrian** (or **ESM C**) is the newer family of models, that can be used as a drop-in replacement for ESM2 models.
+**ESM Cambrian** (or **ESM C**) is the newer family of models, that can be used as a *drop-in replacement* for ESM2 models.
+
+According to the developer of the model, [EvolutionaryScale](https://www.evolutionaryscale.ai):
+
+> ESM C is designed as a drop-in replacement for ESM2 and comes with major performance benefits. The 300M parameter ESM C delivers similar performance to ESM2 650M with dramatically reduced memory requirements and faster inference. The 600M parameter ESM C rivals the 3B parameter ESM2 and approaches the capabilities of the 15B model, delivering frontier performance with far greater efficiency. The 6B parameter ESM C outperforms the best ESM2 models by a wide margin.
 
 - [Blog article (EvolutionaryScale Website)](https://www.evolutionaryscale.ai/blog/esm-cambrian)
 
 - [Implementation (GitHub)](https://github.com/evolutionaryscale/esm?tab=readme-ov-file#esm-c-)
+
+- [Pre-trained models (Hugging Face)](https://huggingface.co/EvolutionaryScale)
+
+#### Model Versions
+
+These are the pre-trained models available on Hugging Face.
+ 
+| Name                    | Parameters |
+| [esmc-600m-2024-12](https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12)  | 600M       |
+| [esmc-300m-2024-12](https://huggingface.co/EvolutionaryScale/esmc-300m-2024-12)  | 300M       |
 
 ## Experimental Setup
 
