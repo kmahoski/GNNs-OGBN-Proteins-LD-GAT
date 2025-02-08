@@ -35,7 +35,7 @@ One of the key aspects of the LD+GAT method is the use of the **ESM2 650M** mode
 These are the pre-trained models available on Hugging Face.
 
 | Name                | Layers     | Parameters |
-| ------------------- | ---------- | ---------- |
+| :------------------ | :--------- | :--------- |
 | [esm2_t48_15B_UR50D](https://huggingface.co/facebook/esm2_t48_15B_UR50D)  | 48         | 15B        |
 | [esm2_t36_3B_UR50D](https://huggingface.co/facebook/esm2_t36_3B_UR50D)   | 36         | 3B         |
 | [esm2_t33_650M_UR50D](https://huggingface.co/facebook/esm2_t33_650M_UR50D) | 33         | 650M       |
