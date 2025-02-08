@@ -12,7 +12,7 @@ Currently, only ESM2 models are being used as node encoders. The next step is to
 
 ## Dataset
 
-The OGBN-Proteins dataset is part of Stanford's Open Graph Benchmark (OGB). It is a protein-protein association network represented as an undirected weighted graph, typed according to species. It consists of more than 132 thousand nodes and almost 40 million edges. Each node represents a specific protein (coming from one of the 8 biological species), and each edge represents a specific biologically meaningful association between two proteins (physical interaction, co-expression, or homology).
+The OGBN-Proteins dataset is part of Stanford's Open Graph Benchmark (OGB). It is a protein-protein association network represented as an undirected weighted graph, typed according to species. Each node represents a specific protein, and each edge represents a specific biologically meaningful association between two proteins (physical interaction, co-expression, or homology).
 
 - [Description (OGB Website)](https://ogb.stanford.edu/docs/nodeprop/#ogbn-proteins)
 
