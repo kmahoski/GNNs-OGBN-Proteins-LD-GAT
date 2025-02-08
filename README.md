@@ -55,31 +55,29 @@ These are the pre-trained models available on Hugging Face.
 
 ### OS
 
-Linux
-6.12.10-200.fc41.x86_64
+Linux (kernel version 6.12.10-200.fc41.x86_64)
 
 ### GPU
 
-Nvidia
-(Originally tested on Quadro P1000)
+Nvidia (originally tested on Quadro P1000)
 
-GPU Drivers: Proprietary, from X.Org (with CUDA)
+GPU drivers: proprietary, from X.Org (with CUDA support)
 
-CUDA Version: Build cuda_12.8.r12.8
+CUDA version: cuda_12.8.r12.8
 
 ### Environment
 
-Conda
+Conda (version 25.1.1)
 
-Required packages:
+Main required packages:
 
-- python=3.9.12
-- ogb=1.3.3
+- python=3.12.2
+- ogb=1.3.6
 - numpy=1.26.4
 - dgl=2.4.0.th24.cu124
-- pytorch=2.4.0+cu124
+- pytorch=2.4.1
 - pyg=2.6.1
-- hydra-core=1.3.1
+- hydra-core=1.3.2
 
 There are additional packages for the dependencies. An extensive list, along with a more detailed info is provided in conda-environment-packages.txt.
 
