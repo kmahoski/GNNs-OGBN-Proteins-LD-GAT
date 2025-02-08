@@ -83,7 +83,7 @@ There are additional packages for the dependencies. An extensive list, along wit
 
 ## Running the Experiments
 
-- Default (ESM2 650M)
+- ESM2 650M (default)
 
 ```
 cd transformer
