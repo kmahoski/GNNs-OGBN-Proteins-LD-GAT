@@ -62,6 +62,7 @@ According to the developer of the model, [EvolutionaryScale](https://www.evoluti
 These are the pre-trained models available on Hugging Face.
  
 | Name                    | Parameters |
+|-------------------------|------------|
 | [esmc-600m-2024-12](https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12)  | 600M       |
 | [esmc-300m-2024-12](https://huggingface.co/EvolutionaryScale/esmc-300m-2024-12)  | 300M       |
 
