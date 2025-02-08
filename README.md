@@ -83,8 +83,8 @@ There are additional packages for the dependencies. An extensive list, along wit
 
 #### Notes on the Folder Structure
 
-Git ignores the following folders:
-protein/data/
+Git ignores the following folders:<br>
+protein/data/<br>
 datasets/OGB/ogbn_proteins/
 
 *protein/data/* should contain the protein sequences from the STRING database.
