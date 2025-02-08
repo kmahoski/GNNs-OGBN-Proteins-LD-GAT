@@ -1,14 +1,14 @@
 # The LD+GAT Method for OGBN-Proteins
 
-- [Original implementation (GitHub)](https://github.com/MIRALab-USTC/LD)
-
-- [Original LD paper (arXiv)](http://arxiv.org/abs/2309.14907)
-
 This is a slightly modified version of the original implementation of the Label Deconvolution (LD) method. Primarily, only the parts of the code that are relevant to the OGBN-Proteins dataset are left.
 
 Additionally, there is some refactoring and adjustments to allow for easier experimentation with different protein language models that are used as node encoders.
 
 Currently, only ESM2 models are being used as node encoders. The next step is to experiment with the newer, ESM Cambrian (ESM C) models.
+
+- [Original implementation of LD (GitHub)](https://github.com/MIRALab-USTC/LD)
+
+- [Original LD paper (arXiv)](http://arxiv.org/abs/2309.14907)
 
 ## Dataset
 
