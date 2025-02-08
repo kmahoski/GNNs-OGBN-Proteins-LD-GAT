@@ -1,4 +1,4 @@
-# LD+GAT for OGBN-Proteins
+# The LD+GAT Method for OGBN-Proteins
 
 - [Original implementation (GitHub)](https://github.com/MIRALab-USTC/LD)
 
@@ -8,7 +8,7 @@ This is a slightly modified version of the original implementation of the Label 
 
 Additionally, there is some refactoring and adjustments to allow for easier experimentation with different protein language models that are used as node encoders.
 
-Currently, ESM2 family models are in use. The next step is to experiment with the newer ESM Cambrian (ESM C) models.
+Currently, only ESM2 family models are being used as node encoders. The next step is to experiment with the newer, ESM Cambrian (ESM C) models.
 
 ## Dataset
 
