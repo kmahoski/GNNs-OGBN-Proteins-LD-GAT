@@ -22,12 +22,12 @@ params:
       label_as_feat: false
     load_best_model_at_end: 'T'
     bf16_full_eval: false
-    eq_batch_size: 1
+    eq_batch_size: 36
     max_bsz:
-      1: 1
-      12: 1
-      16: 1
-      24: 1
-      32: 1
-      40: 1
-      70: 1
+      6: 1
+      12: 2
+      16: 4
+      24: 4
+      32: 4
+      40: 16
+      70: 24
