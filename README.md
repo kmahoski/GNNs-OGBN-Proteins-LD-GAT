@@ -81,6 +81,17 @@ Main required packages:
 
 There are additional packages for the dependencies. An extensive list, along with a more detailed info is provided in conda-environment-packages.txt.
 
+#### Notes on the Folder Structure
+
+Git ignores the following folders:
+protein/data/
+datasets/OGB/ogbn_proteins/
+
+*protein/data/* should contain the protein sequences from the STRING database.
+
+*datasets/OGB/ogbn_proteins/* is intended to contain the OGBN-Proteins dataset, but this path can be changed.
+
+
 ## Running the Experiments
 
 - ESM2 650M (default)
