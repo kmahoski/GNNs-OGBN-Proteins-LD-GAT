@@ -59,13 +59,13 @@ Linux (kernel version 6.12.10-200.fc41.x86_64)
 
 ### Relevant Hardware and Drivers
 
-**GPU:**<br>
+**GPU:**\
 Nvidia (originally tested with Quadro P1000)
 
-**GPU Drivers:**<br>
+**GPU Drivers:**\
 Proprietary Nvidia drivers (X.Org X11) from *rpmfusion* (with CUDA support)
 
-**CUDA Version:**<br>
+**CUDA Version:**\
 cuda_12.8.r12.8
 
 ### Environment
@@ -86,7 +86,7 @@ There are additional packages for the dependencies. An extensive list, along wit
 
 #### Notes on the Folder Structure
 
-Git ignores the folder:<br>
+Git ignores the folder:\
 *protein/data/*
 
 
@@ -97,13 +97,11 @@ datasets/OGB/ogbn_proteins/
 Additional important directories are:
 
 - OGB
--- This is where the original dataset (downloaded from OGB) is located.
--- In the config files, the dataset path is set to */home/USER/Desktop/OGB/ogbn_proteins*.
+ - This is where the original dataset (downloaded from OGB) is located.
+ - In the config files, the dataset path is set to */home/<USER>/Desktop/OGB/ogbn_proteins*.
 - Models
--- This is where the node encoder (ESM) models are located.
--- In the config files, the model paths are under */home/USER/Desktop/Models/<MODEL_NAME>/*.
-is intended to contain the OGBN-Proteins dataset, but this path can be changed.
-
+ - This is where the node encoder (ESM) models are located.
+ - In the config files, the model paths are under */home/<USER>/Desktop/Models/<MODEL_NAME>/*.
 
 ## Running the Experiments
 
