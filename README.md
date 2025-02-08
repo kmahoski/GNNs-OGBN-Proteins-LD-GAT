@@ -107,10 +107,10 @@ Git ignores the directory: *protein/data/*
 - This directory should contain the protein sequences from the STRING database.
 
 Additional important directories are:
-- OGB
+- *OGB*
   - This is where the original dataset (downloaded from OGB) is located.
   - In the config files, the dataset path is set to */home/\<USER\>/Desktop/OGB/ogbn_proteins/*.
-- Models
+- *Models*
   - This is where the node encoder (ESM) models are located.
   - In the config files, the model paths are set to */home/\<USER\>/Desktop/Models/\<MODEL_NAME\>/*.
 
