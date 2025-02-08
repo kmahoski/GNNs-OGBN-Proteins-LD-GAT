@@ -86,13 +86,23 @@ There are additional packages for the dependencies. An extensive list, along wit
 
 #### Notes on the Folder Structure
 
-Git ignores the following folders:<br>
-protein/data/<br>
+Git ignores the folder:<br>
+*protein/data/*
+
+
 datasets/OGB/ogbn_proteins/
 
 *protein/data/* should contain the protein sequences from the STRING database.
 
-*datasets/OGB/ogbn_proteins/* is intended to contain the OGBN-Proteins dataset, but this path can be changed.
+Additional important directories are:
+
+- OGB
+-- This is where the original dataset (downloaded from OGB) is located.
+-- In the config files, the dataset path is set to */home/USER/Desktop/OGB/ogbn_proteins*.
+- Models
+-- This is where the node encoder (ESM) models are located.
+-- In the config files, the model paths are under */home/USER/Desktop/Models/<MODEL_NAME>/*.
+is intended to contain the OGBN-Proteins dataset, but this path can be changed.
 
 
 ## Running the Experiments
