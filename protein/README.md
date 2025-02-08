@@ -7,7 +7,7 @@ wget https://stringdb-downloads.org/download/protein.sequences.v11.5.fa.gz
 
 # Alternatively, to download v12.0 of the database:
 # wget https://stringdb-downloads.org/download/protein.sequences.v12.0.fa.gz
-# NOTE: In this case, the file name in protein/process_proteins.py would need to be changed accordingly.
+# NOTE: In that case, the file name in protein/process_proteins.py would need to be changed accordingly.
 cd ..
 
 $OGB_PATH=/datasets/OGB/
