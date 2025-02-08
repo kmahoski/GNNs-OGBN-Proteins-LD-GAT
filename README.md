@@ -1,8 +1,13 @@
 # The LD+GAT Method for OGBN-Proteins
 
-This is a slightly modified version of the original implementation of the Label Deconvolution (LD) method. Primarily, only the parts of the code that are relevant to the OGBN-Proteins dataset remain in the codebase.
+This is a slightly modified version of the original implementation of the Label Deconvolution (LD) method.
+
+Only the pieces of the original implementation's code that are relevant to the OGBN-Proteins dataset remain in this version.
 
 Additionally, there is some refactoring and adjustments to allow for easier experimentation with different protein language models that are used as node encoders.
+- There are 3 sets of scripts (for 3 different versions of the node encoder model).
+
+For easier troubleshooting, print statements are added to each step of the main procedure (in *transformer/main_bertgnn.py*).
 
 Currently, only ESM2 models are being used as node encoders. The next step is to experiment with the newer, ESM Cambrian (ESM C) models.
 
