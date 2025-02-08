@@ -104,7 +104,7 @@ Main required packages:
 - pyg=2.6.1
 - hydra-core=1.3.2
 
-There are additional packages for the dependencies. An extensive list, along with a more detailed info is provided in conda-environment-packages.txt.
+There are additional packages for the dependencies. An extensive list, along with a more detailed info is provided in *conda-environment-packages.txt*.
 
 #### Notes on the Folder Structure
 
