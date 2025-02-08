@@ -267,6 +267,8 @@ def floor_quantize(val, to_values):
     """
     best_match = None
     best_match_diff = None
+    print(min(to_values))
+    print(val)
     assert min(to_values) <= val
     for other_val in to_values:
         if other_val <= val:  # Floored (only smaller values are matched)

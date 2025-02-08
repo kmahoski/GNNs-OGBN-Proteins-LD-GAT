@@ -195,7 +195,7 @@ def main(conf):
             report_to='tensorboard',
             per_device_train_batch_size=batch_size, # unused
             per_device_eval_batch_size=batch_size * 6 if conf.LM.name in {'esm2_t12_35M_UR50D', 'esm2_t6_8M_UR50D'} else batch_size * 10,
-            warmup_steps=0,
+            warmup_steps=phase_params.warmup_ratio,
             disable_tqdm=False,
             dataloader_drop_last=True,
             num_train_epochs=phase_params.epochs,
