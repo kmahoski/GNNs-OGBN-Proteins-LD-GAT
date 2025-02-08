@@ -88,7 +88,7 @@ Proprietary Nvidia drivers\
 (X.Org X11) from *rpmfusion* (with CUDA support)
 
 **CUDA Version:**\
-cuda_12.8.r12.8
+Build cuda_12.8.r12.8
 
 ### Environment
 
