@@ -8,6 +8,7 @@ from types import SimpleNamespace as SN
 import subprocess as sp
 from pathlib import Path
 
+
 print(os.environ['CUDA_VISIBLE_DEVICES'])
 #torch.zeros(1).cuda()
 print(torch.__version__)
