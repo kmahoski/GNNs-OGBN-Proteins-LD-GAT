@@ -53,13 +53,13 @@ These are the pre-trained models available on Hugging Face.
 
 ## Experimental Setup
 
-### OS
+### Operating System
 
 Linux (kernel version 6.12.10-200.fc41.x86_64)
 
-### GPU
+### Relevant Hardware and Drivers
 
-Nvidia (originally tested on Quadro P1000)
+GPU: Nvidia (originally tested with Quadro P1000)
 
 GPU drivers: proprietary, from X.Org (with CUDA support)
 
