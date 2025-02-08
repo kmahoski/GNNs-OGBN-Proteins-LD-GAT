@@ -84,7 +84,8 @@ Nvidia\
 (originally tested with Quadro P1000)
 
 **GPU Drivers:**\
-Proprietary Nvidia drivers (X.Org X11) from *rpmfusion* (with CUDA support)
+Proprietary Nvidia drivers\
+(X.Org X11) from *rpmfusion* (with CUDA support)
 
 **CUDA Version:**\
 cuda_12.8.r12.8
