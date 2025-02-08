@@ -7,19 +7,14 @@ data/
 .eggs/
 *.egg-info/
 outputs/
-photo/
 .coverage
 *.pt
 *.so
 
 .style.yapf
 
-GAMLP/
-NodeFormer/
 temp/
-./SIEG_OGB/
 proteins_gat/
-NeuralCommonNeighbor/
 
 *.out
 
