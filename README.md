@@ -110,7 +110,7 @@ There are additional packages for the dependencies. An extensive list, along wit
 Git ignores the directory: *protein/data/*
 - This directory should contain the protein sequences from the STRING database.
 
-Other important directories are:
+The other important directories are:
 - *OGB*
   - This is where the original dataset (downloaded from OGB) is located.
   - In the config files, the dataset path is set to */home/\<USER\>/Desktop/OGB/ogbn_proteins/*.
