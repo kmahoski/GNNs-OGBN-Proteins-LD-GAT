@@ -97,11 +97,11 @@ datasets/OGB/ogbn_proteins/
 Additional important directories are:
 
 - OGB
- - This is where the original dataset (downloaded from OGB) is located.
- - In the config files, the dataset path is set to */home/<USER>/Desktop/OGB/ogbn_proteins*.
+  - This is where the original dataset (downloaded from OGB) is located.
+  - In the config files, the dataset path is set to */home/<USER>/Desktop/OGB/ogbn_proteins*.
 - Models
- - This is where the node encoder (ESM) models are located.
- - In the config files, the model paths are under */home/<USER>/Desktop/Models/<MODEL_NAME>/*.
+  - This is where the node encoder (ESM) models are located.
+  - In the config files, the model paths are under */home/<USER>/Desktop/Models/<MODEL_NAME>/*.
 
 ## Running the Experiments
 
