@@ -8,7 +8,7 @@ Additionally, there is some refactoring and adjustments to allow for easier expe
 - There are 3 sets of scripts (for 3 different versions of the node encoder model).
 - For easier troubleshooting, print statements are added to each step of the main procedure (in *transformer/main_bertgnn.py*).
 
-Currently, only ESM2 models are being used as node encoders. The next step is to experiment with the newer, ESM Cambrian (ESM C) models.
+Currently, only ESM-2 models are being used as node encoders. The next step is to experiment with the newer, ESM Cambrian (ESM C) models.
 
 - [Original implementation of LD (GitHub)](https://github.com/MIRALab-USTC/LD)
 
@@ -24,11 +24,11 @@ The OGBN-Proteins dataset is part of Stanford's Open Graph Benchmark (OGB). It i
 
 ## Node Encoders
 
-One of the key aspects of the LD+GAT method is the use of the **ESM2 650M** model as a **node encoder**.
+One of the key aspects of the LD+GAT method is the use of the **ESM-2 650M** model as a **node encoder**.
 
-### ESM2 Models
+### ESM-2 Models
 
-**Evolutionary Scale Modeling (ESM)**, with **ESM2** and **ESMFold**, is a family of **transformer protein language models** from Meta AI's Fundamental AI Research Team.
+**Evolutionary Scale Modeling (ESM)**, with **ESM-2** and **ESMFold**, is a family of **transformer protein language models** from Meta AI's Fundamental AI Research Team.
 
 - [Implementation (GitHub)](https://github.com/facebookresearch/esm)
 
@@ -49,11 +49,11 @@ These are the pre-trained models available on Hugging Face.
 
 ### ESM Cambrian Models
 
-**ESM Cambrian** (or **ESM C**) is the newer family of models, that can be used as a *drop-in replacement* for ESM2 models.
+**ESM Cambrian** (or **ESM C**) is the newer family of models, that can be used as a *drop-in replacement* for ESM-2 models.
 
 According to the developer of the model, [EvolutionaryScale](https://www.evolutionaryscale.ai):
 
-> ESM C is designed as a drop-in replacement for ESM2 and comes with major performance benefits. The 300M parameter ESM C delivers similar performance to ESM2 650M with dramatically reduced memory requirements and faster inference. The 600M parameter ESM C rivals the 3B parameter ESM2 and approaches the capabilities of the 15B model, delivering frontier performance with far greater efficiency. The 6B parameter ESM C outperforms the best ESM2 models by a wide margin.
+> ESM C is designed as a drop-in replacement for ESM-2 and comes with major performance benefits. The 300M parameter ESM C delivers similar performance to ESM-2 650M with dramatically reduced memory requirements and faster inference. The 600M parameter ESM C rivals the 3B parameter ESM-2 and approaches the capabilities of the 15B model, delivering frontier performance with far greater efficiency. The 6B parameter ESM C outperforms the best ESM-2 models by a wide margin.
 
 - [Blog article (EvolutionaryScale Website)](https://www.evolutionaryscale.ai/blog/esm-cambrian)
 
@@ -125,21 +125,21 @@ The other important directories are:
 
 ## Running the Experiments
 
-- ESM2 650M (default)
+- ESM-2 650M (default)
 
 ```
 cd transformer
 bash scripts/shell_protein_gat.sh
 ```
 
-- ESM2 35M
+- ESM-2 35M
 
 ```
 cd transformer
 bash scripts/shell_protein_gat_35M.sh
 ```
 
-- ESM2 8M
+- ESM-2 8M
 
 ```
 cd transformer
