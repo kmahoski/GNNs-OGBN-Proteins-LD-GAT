@@ -109,7 +109,7 @@ There are additional packages for the dependencies. An extensive list, along wit
 #### Notes on the Folder Structure
 
 Git ignores the directory: *protein/data/*
-- This directory should contain the protein sequences from the STRING database (one of the following versions).
+- This directory should contain the protein sequences from the STRING database. It can be one of the following versions:
   - [STRING v11.5 protein sequences](https://stringdb-downloads.org/download/protein.sequences.v11.5.fa.gz)
   - [STRING v12.0 protein sequences](https://stringdb-downloads.org/download/protein.sequences.v12.0.fa.gz)
 
