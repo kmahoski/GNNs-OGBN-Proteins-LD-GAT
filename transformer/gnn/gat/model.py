@@ -16,6 +16,7 @@ from torch.nn import init
 from torch.utils.checkpoint import checkpoint
 
 from bert.bert_model import NodeClassifier
+from gnn.gamlp.gamlp_utils import dgl_neighbor_average_features
 
 
 class GATBertNodeClassifier(NodeClassifier):
