@@ -89,10 +89,14 @@ def get_bz_and_gas(conf):
         logger.log(f'GNN Eq_batch_size = {conf.model.params.batch_size*grad_acc_steps}, bsz={conf.model.params.batch_size}, grad_acc_steps={grad_acc_steps}')
     return batch_size, grad_acc_steps
 
+
+
 @hydra.main(config_path='conf', config_name='config')
 def main(conf):
 
     logging.info('start')
+
+
 
     """
     Step 1: Process args
@@ -114,6 +118,7 @@ def main(conf):
     logger.configure(dir='./log_dir/', format_strs=['stdout','log','csv',])
     dict_conf = yaml.safe_load(OmegaConf.to_yaml(conf))
     logger.save_conf(dict_conf)
+
 
 
     """
@@ -138,6 +143,7 @@ def main(conf):
     logger.log(f'Done! [{time.perf_counter() - t:.2f}s]')
 
 
+
     """
     Step 3:
     """
@@ -148,6 +154,7 @@ def main(conf):
     print()
 
     bert_model = AutoModel.from_pretrained(conf.LM.path)
+
 
 
     """
@@ -171,6 +178,7 @@ def main(conf):
         bert_gnn_model = eval(conf.model.params.bert_gnn_model)
     else:
         raise NotImplementedError
+
 
 
     """
@@ -213,7 +221,9 @@ def main(conf):
         feat_shrink=conf.LM.params.feat_shrink,
         **conf.LM.params.architecture,
     )
-    
+
+
+
     """
     Step 6: Load the pretrained model if it exists
     """
@@ -251,6 +261,8 @@ def main(conf):
         logger.log('default dropout and attention_dropout are:', model.config.hidden_dropout_prob, model.config.attention_probs_dropout_prob)
         model.config.hidden_dropout_prob = conf.LM.params.dropout
         model.config.attention_probs_dropout_prob = conf.LM.params.att_dropout
+
+
 
     """
     Step 7: Build trainer
@@ -297,6 +309,8 @@ def main(conf):
         optimizers=optimizers,
     )
 
+
+
     """
     Step 8: Load hidden embeddings
         if the hidden embeddings do not exist, then we use trainer to inference the hidden embeddings
@@ -315,6 +329,8 @@ def main(conf):
         save_gnn_path = save_dir + '/pre_gnn'
         os.makedirs(save_gnn_path, exist_ok=True)
     trainer.load_hidden_state(load_dir, perm, save_gnn_path)
+
+
 
     """
     Step 9: Train
@@ -338,6 +354,8 @@ def main(conf):
         if 'eval_val_accuracy' in log_history:
             logger.logkvs(log_history)
             logger.dumpkvs()
+
+
 
     """
     Step 10: Save the best model
@@ -364,6 +382,7 @@ def main(conf):
         torch.save(trainer.model.state_dict(), os.path.join('./lm_gnn.ckpt'))
 
     logging.info('finish')
+
 
 
 if __name__ == "__main__":

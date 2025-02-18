@@ -89,14 +89,24 @@ def get_bz_and_gas(conf):
         logger.log(f'GNN Eq_batch_size = {conf.model.params.batch_size*grad_acc_steps}, bsz={conf.model.params.batch_size}, grad_acc_steps={grad_acc_steps}')
     return batch_size, grad_acc_steps
 
+
+
 @hydra.main(config_path='conf', config_name='config')
 def main(conf):
 
     logging.info('start')
 
+
+
     """
     Step 1: Process args
     """
+    print()
+    print()
+    print("STEP 1")
+    print("Process args")
+    print()
+
     conf.model.params = conf.model.params[conf.dataset.name]
     conf.phase.params = conf.phase.params[conf.dataset.name]
     if conf.LM.name in conf.phase.params:
@@ -110,9 +120,16 @@ def main(conf):
     logger.save_conf(dict_conf)
 
 
+
     """
     Step 2: Load data and metrics
     """
+    print()
+    print()
+    print("STEP 2")
+    print("Load data and metrics")
+    print()
+
     t = time.perf_counter()
     logger.log('Loading data...')
     data, in_channels, out_channels, evaluator_wrapper, metric_for_best_model = get_data(conf.root, conf.dataset.name, conf.model.data_mode)
@@ -126,10 +143,18 @@ def main(conf):
     logger.log(f'Done! [{time.perf_counter() - t:.2f}s]')
 
 
+
     """
     Step 3: Load node encoder (transformer)
     """
+    print()
+    print()
+    print("STEP 3")
+    print("Load node encoder (transformer)")
+    print()
+
     bert_model = AutoModel.from_pretrained(conf.LM.path)
+
 
 
     """
@@ -137,6 +162,13 @@ def main(conf):
         1. Load GNN and corresponding graph dataloader
         2. Process data and simple_data
     """
+    print()
+    print()
+    print("STEP 4")
+    print("1. Load GNN and corresponding graph dataloader")
+    print("2. Process data and simple_data")
+    print()
+
     perm = torch.arange(data.num_nodes)
     if conf.model.framework in ['gat']:
         from gnn.gat.loader import get_gat_loader
@@ -144,31 +176,20 @@ def main(conf):
         data, train_loader_func, eval_loader = get_gat_loader(data, conf)
         gnn_model = get_model(conf, bert_model, out_channels)
         bert_gnn_model = eval(conf.model.params.bert_gnn_model)
-    elif conf.model.framework in ['gamlp']:
-        from gnn.gamlp.loader import get_gamlp_loader
-        from gnn.gamlp.model import get_model, GAMLPBertNodeClassifier
-        data, train_loader_func, eval_loader = get_gamlp_loader(data, simple_data, conf)
-        gnn_model = get_model(conf, bert_model, out_channels)
-        bert_gnn_model = eval(conf.model.params.bert_gnn_model)
-    elif conf.model.framework in ['revgat']:
-        from gnn.revgat.loader import get_revgat_loader
-        from gnn.revgat.model import get_model, REVGATBertNodeClassifier
-        data, train_loader_func, eval_loader = get_revgat_loader(data, conf)
-        gnn_model = get_model(conf, bert_model, out_channels)
-        bert_gnn_model = eval(conf.model.params.bert_gnn_model)
-    elif conf.model.framework in ['sagn']:
-        from gnn.sagn.loader import get_sagn_loader
-        from gnn.sagn.model import get_model, SAGNBertNodeClassifier
-        data, train_loader_func, eval_loader = get_sagn_loader(data, conf)
-        gnn_model = get_model(conf, bert_model, out_channels)
-        bert_gnn_model = eval(conf.model.params.bert_gnn_model)
     else:
         raise NotImplementedError
+
 
 
     """
     Step 5: Build Bert+GNN model
     """
+    print()
+    print()
+    print("STEP 5")
+    print("Build Bert+GNN model")
+    print()
+
     batch_size, grad_acc_steps = get_bz_and_gas(conf)
     training_args = TrainingArguments(
             output_dir=phase_params.out_dir,
@@ -200,10 +221,18 @@ def main(conf):
         feat_shrink=conf.LM.params.feat_shrink,
         **conf.LM.params.architecture,
     )
-    
+
+
+
     """
     Step 6: Load the pretrained model if it exists
     """
+    print()
+    print()
+    print("STEP 6")
+    print("Load the pretrained model if it exists")
+    print()
+
     load_dir, save_dir = get_load_save_dir(conf)
     if os.path.exists(os.path.join(load_dir, 'lm_gnn.ckpt')):
         logger.log(f'Load model from {load_dir}')
@@ -233,9 +262,17 @@ def main(conf):
         model.config.hidden_dropout_prob = conf.LM.params.dropout
         model.config.attention_probs_dropout_prob = conf.LM.params.att_dropout
 
+
+
     """
     Step 7: Build trainer
     """
+    print()
+    print()
+    print("STEP 7")
+    print("Build trainer")
+    print()
+
     train_data, valid_data, test_data, data_collator = split_simple_data(conf, simple_data, data)
     if conf.dataset.task in ['node']:
         trainer_func = GLBaseTrainer
@@ -272,10 +309,18 @@ def main(conf):
         optimizers=optimizers,
     )
 
+
+
     """
     Step 8: Load hidden embeddings
         if the hidden embeddings do not exist, then we use trainer to inference the hidden embeddings
     """
+    print()
+    print()
+    print("STEP 8")
+    print("Load hidden embeddings")
+    print()
+
     save_gnn_path=None
     if conf.phase.name == 'pre_gnn' and conf.phase.params.finetune_prefix is None:
         save_gnn_path = save_dir
@@ -284,6 +329,8 @@ def main(conf):
         save_gnn_path = save_dir + '/pre_gnn'
         os.makedirs(save_gnn_path, exist_ok=True)
     trainer.load_hidden_state(load_dir, perm, save_gnn_path)
+
+
 
     """
     Step 9: Train
@@ -294,6 +341,12 @@ def main(conf):
         elif conf.phase.name == 'admm':
             train both bert_model and gnn_model
     """
+    print()
+    print()
+    print("STEP 9")
+    print("Train")
+    print()
+
     start_time = time.time()
     trainer.train(conf.phase.name,)
     end_time = time.time()
@@ -302,9 +355,17 @@ def main(conf):
             logger.logkvs(log_history)
             logger.dumpkvs()
 
+
+
     """
     Step 10: Save the best model
     """
+    print()
+    print()
+    print("STEP 10")
+    print("Save the best model")
+    print()
+
     if conf.phase.params.save_model:
         # ! Save BertClassifer Save model parameters
         os.makedirs(save_dir, exist_ok=True)
@@ -321,6 +382,7 @@ def main(conf):
         torch.save(trainer.model.state_dict(), os.path.join('./lm_gnn.ckpt'))
 
     logging.info('finish')
+
 
 
 if __name__ == "__main__":
